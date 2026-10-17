@@ -63,7 +63,19 @@ def cadastrar_tarefa():
 
 
 def listar_tarefas():
-    print("\n[Listagem de tarefas - em desenvolvimento]")
+    print("\n--- Tarefas cadastradas ---")
+    if not tarefas:
+        print("Nenhuma tarefa cadastrada no momento.")
+        return
+
+    for numero, tarefa in enumerate(tarefas, start=1):
+        print(f"\nTarefa {numero}")
+        print(f"  Título:      {tarefa['titulo']}")
+        print(f"  Descrição:   {tarefa['descricao'] or '(sem descrição)'}")
+        print(f"  Prioridade:  {tarefa['prioridade']}")
+        print(f"  Data limite: {tarefa['data_limite'] or '(não informada)'}")
+        print(f"  Status:      {tarefa['status']}")
+    print(f"\nTotal de tarefas: {len(tarefas)}")
 
 
 def main():
